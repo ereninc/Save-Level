@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class SaveLoadSystem : MonoBehaviour
 {
     public void Save()
     {
-        PlayerPrefs.SetInt("Level4", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.Save();
-        Debug.Log("SavedLevel: "+PlayerPrefs.GetInt("Level4"));
+        Debug.Log("SavedLevel: "+PlayerPrefs.GetInt("Level"));
     }
 
     public void Load()
     {
-        if(PlayerPrefs.GetInt("Level4") > 0)
+        if(PlayerPrefs.GetInt("Level") > 0)
         {
-            if(PlayerPrefs.GetInt("Level4") < SceneManager.GetActiveScene().buildIndex)
+            if(PlayerPrefs.GetInt("Level") < SceneManager.GetActiveScene().buildIndex)
             {
 
             }
-            else if(PlayerPrefs.GetInt("Level4") == SceneManager.GetActiveScene().buildIndex)
+            else if(PlayerPrefs.GetInt("Level") == SceneManager.GetActiveScene().buildIndex)
             {
                 
             }
             else
             {
-                SceneManager.LoadScene(PlayerPrefs.GetInt("Level4"));
+                SceneManager.LoadScene(PlayerPrefs.GetInt("Level"));
             }
         }
     }
