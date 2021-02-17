@@ -16,18 +16,7 @@ public class SaveLoadSystem : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("Level") > 0)
         {
-            if(PlayerPrefs.GetInt("Level") < SceneManager.GetActiveScene().buildIndex)
-            {
-
-            }
-            else if(PlayerPrefs.GetInt("Level") == SceneManager.GetActiveScene().buildIndex)
-            {
-                
-            }
-            else
-            {
-                SceneManager.LoadScene(PlayerPrefs.GetInt("Level"));
-            }
+            SceneManager.LoadScene(PlayerPrefs.GetInt("Level"));
         }
     }
 
